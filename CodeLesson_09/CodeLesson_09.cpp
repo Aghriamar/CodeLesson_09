@@ -14,18 +14,18 @@ enum class EExample : uint8
 	E_BLUE  UMETA(DisplayName = "BLUE")
 };
 
-USTRUCT()
+USTRUCT(BlueprintType)
 struct FMyData
 {
 	GENERATED_BODY()
 	
-	UPROPERTY()
+	UPROPERTY(EditAnywhere, BLueprintReadWrite)
 	EExample EnumValue;
-	UPROPERTY()
+	UPROPERTY(EditAnywhere, BLueprintReadWrite)
 	int32 IntValue;
-	UPROPERTY()
+	UPROPERTY(EditAnywhere, BLueprintReadWrite)
 	FString StringValue;
-	UPROPERTY()
+	UPROPERTY(EditAnywhere, BLueprintReadWrite)
 	AActor* ActorPtr;
 
 	FMyData()
@@ -48,6 +48,8 @@ public:
 
 	UPROPERTY(BlueprintReadOnly)
 	EExample ExampleEnumValue;
+	UPROPERTY(BlueprintReadWrite)
+	FMyData ExampleStructValue;
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
