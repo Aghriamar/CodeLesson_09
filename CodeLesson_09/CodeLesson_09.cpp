@@ -1,26 +1,33 @@
-﻿#include <iostream>
-#include <string>
+﻿//Fill out your copyright notice in the Description page of Project Settings.
 
-struct Bag
+#pragma once
+
+#include <CoreMinimal.h>
+#include <GameFramework/Actor.h>
+#include <ExampleActor.generated.h>
+
+ENUM()
+enum class EExample
 {
-	std::string Book[];
+	RED,
+	GREEN,
+	BLUE
 };
 
-struct Student
+UCLASS()
+class EXAMPLE_API AExampleActor : public AActor
 {
-	int Age = 0;
-	int Height = 0;
-	std::string Name = 0;
-	Bag* myBag = nullptr;
+	GENERATED_BODY()
 
-	void GetInfo()
-	{
-		std::cout << "student struct";
-	}
+public:
+	// Sets default values for this actor's properties
+	AExampleActor(const FObjectInitializer& ObjectInitializer);
+
+protected:
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
+
+public:
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
 };
-
-int main()
-{
-	Student* ptr = new Student{10, 160, "Paul"};
-	ptr->GetInfo();
-}
