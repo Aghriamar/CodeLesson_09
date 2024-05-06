@@ -8,12 +8,16 @@ enum Result
     ERROR_READ,
 };
 
-int DoWork()
+Result DoWork()
 {
-    return 1;
+    return SUCCESS;
 }
 
 int main()
 {
-    
+    Result workResult = DoWork();
+    if (workResult == SUCCESS)
+    {
+
+    }
 }
