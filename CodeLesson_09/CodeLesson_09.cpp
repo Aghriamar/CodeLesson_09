@@ -7,7 +7,7 @@
 #include <ExampleActor.generated.h>
 
 ENUM(BlueprintType)
-enum class EExample
+enum class EExample : uint8
 {
 	E_RED   UMETA(DisplayName="RED"),
 	E_GREEN UMETA(DisplayName = "GREEN"),
@@ -23,7 +23,7 @@ public:
 	// Sets default values for this actor's properties
 	AExampleActor(const FObjectInitializer& ObjectInitializer);
 
-	UPROPERTY()
+	UPROPERTY(BlueprintReadOnly)
 	EExample ExampleEnumValue;
 protected:
 	// Called when the game starts or when spawned
