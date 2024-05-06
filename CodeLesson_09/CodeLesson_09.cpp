@@ -14,6 +14,29 @@ enum class EExample : uint8
 	E_BLUE  UMETA(DisplayName = "BLUE")
 };
 
+USTRUCT()
+struct FMyData
+{
+	GENERATED_BODY()
+	
+	UPROPERTY()
+	EExample EnumValue;
+	UPROPERTY()
+	int32 IntValue;
+	UPROPERTY()
+	FString StringValue;
+	UPROPERTY()
+	AActor* ActorPtr;
+
+	FMyData()
+	{
+		EnumValue	= EExample::E_RED;
+		IntValue	= 10;
+		StringValue = TEXT("MyString");
+		ActorPtr	= nullptr;
+	}
+};
+
 UCLASS()
 class EXAMPLE_API AExampleActor : public AActor
 {
