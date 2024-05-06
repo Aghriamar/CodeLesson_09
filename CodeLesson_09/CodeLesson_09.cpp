@@ -6,12 +6,12 @@
 #include <GameFramework/Actor.h>
 #include <ExampleActor.generated.h>
 
-ENUM()
+ENUM(BlueprintType)
 enum class EExample
 {
-	RED,
-	GREEN,
-	BLUE
+	E_RED   UMETA(DisplayName="RED"),
+	E_GREEN UMETA(DisplayName = "GREEN"),
+	E_BLUE  UMETA(DisplayName = "BLUE")
 };
 
 UCLASS()
@@ -23,6 +23,8 @@ public:
 	// Sets default values for this actor's properties
 	AExampleActor(const FObjectInitializer& ObjectInitializer);
 
+	UPROPERTY()
+	EExample ExampleEnumValue;
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
